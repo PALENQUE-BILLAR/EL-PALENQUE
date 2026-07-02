@@ -18,8 +18,8 @@
         
         body { 
             background-color: var(--dark); 
-            background-image: linear-gradient(rgba(10, 10, 10, 0.92), rgba(10, 10, 10, 0.92)), 
-                              url('mesa-billar.JPEG');
+            background-image: linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)), 
+                              url('https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=600&auto=format&fit=crop');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
@@ -55,6 +55,7 @@
 
         .container { max-width: 600px; margin: 0 auto; padding: 12px; }
         
+        /* Banners de Categorías */
         .category-banner {
             width: 100%;
             height: 100px;
@@ -87,6 +88,7 @@
             font-weight: 900;
         }
         
+        /* CUADRÍCULA DE PRODUCTOS */
         .category-group {
             background: rgba(0, 0, 0, 0.4);
             padding: 10px;
@@ -147,6 +149,7 @@
         .btn-qty { background-color: var(--accent-red); border: none; width: 26px; height: 26px; border-radius: 4px; font-size: 1rem; font-weight: bold; cursor: pointer; color: white; box-shadow: 0 2px 4px rgba(0,0,0,0.4); }
         .qty { font-size: 0.95rem; min-width: 14px; text-align: center; font-weight: bold; text-shadow: 1px 1px 2px #000; }
 
+        /* Tarjeta de Información */
         .info-card {
             background-color: var(--card-bg);
             padding: 15px;
@@ -160,12 +163,14 @@
         .info-item h4 { color: var(--accent-fire); text-transform: uppercase; font-size: 0.8rem; }
         .info-item p { color: #fff; font-size: 0.9rem; }
 
+        /* Formulario */
         .delivery-form { background-color: var(--card-bg); padding: 15px; border-radius: 12px; margin-top: 20px; border: 1px solid rgba(255, 69, 0, 0.3); }
         .delivery-form h2 { color: var(--primary); margin-bottom: 12px; font-size: 1.1rem; text-transform: uppercase; }
         .form-group { margin-bottom: 12px; }
         .form-group label { display: block; margin-bottom: 4px; font-size: 0.8rem; color: #ddd; }
         .form-group input, .form-group textarea { width: 100%; padding: 8px; background: rgba(15,15,15,0.9); border: 1px solid #444; border-radius: 4px; color: white; font-size: 0.9rem; }
 
+        /* Barra fija inferior */
         .cart-bar { position: fixed; bottom: 0; left: 0; right: 0; background-color: rgba(0,0,0,0.95); padding: 15px; display: flex; justify-content: space-between; align-items: center; max-width: 600px; margin: 0 auto; border-top: 2px solid var(--accent-fire); z-index: 999; box-shadow: 0 -5px 15px rgba(0,0,0,0.8); }
         .cart-total { font-size: 1.1rem; font-weight: bold; }
         .cart-total span { color: var(--primary); }
@@ -200,15 +205,16 @@
         </div>
 
         <!-- SECCIÓN COMBOS -->
-        <div class="category-banner" style="background-image: url('combo1.JPEG');" data-bg="combo1.JPEG">
+        <div class="category-banner" style="background-image: url('https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?q=80&w=500&auto=format&fit=crop');">
             <div class="category-overlay">
                 <h2>⚡ Súper Combos</h2>
             </div>
         </div>
         <div class="category-group">
+            
             <!-- COMBO 1 -->
-            <div class="product-card" data-name="Combo 1" data-price="160">
-                <img class="product-img" src="combo1.JPEG" alt="Combo 1">
+            <div class="product-card" data-name="Combo 1 (Burguer + HotDog + Papas)" data-price="160">
+                <img class="product-img" src="https://images.unsplash.com/photo-1610614819513-58e34989848b?q=80&w=200&auto=format&fit=crop" alt="Combo 1">
                 <div class="product-details">
                     <div class="product-info">
                         <h3>Combo 1</h3>
@@ -230,8 +236,8 @@
             </div>
 
             <!-- COMBO 2 -->
-            <div class="product-card" data-name="Combo 2" data-price="220">
-                <img class="product-img" src="combo2.JPEG" alt="Combo 2">
+            <div class="product-card" data-name="Combo 2 (Burguer + HotDog + Alitas)" data-price="220">
+                <img class="product-img" src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?q=80&w=200&auto=format&fit=crop" alt="Combo 2">
                 <div class="product-details">
                     <div class="product-info">
                         <h3>Combo 2</h3>
@@ -253,8 +259,8 @@
             </div>
 
             <!-- COMBO 3 -->
-            <div class="product-card" data-name="Combo 3" data-price="230">
-                <img class="product-img" src="combo3.JPEG" alt="Combo 3">
+            <div class="product-card" data-name="Combo 3 (Burguer + Papas + Alitas)" data-price="230">
+                <img class="product-img" src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?q=80&w=200&auto=format&fit=crop" alt="Combo 3">
                 <div class="product-details">
                     <div class="product-info">
                         <h3>Combo 3</h3>
@@ -276,8 +282,8 @@
             </div>
 
             <!-- COMBO 4 -->
-            <div class="product-card" data-name="Combo 4" data-price="270">
-                <img class="product-img" src="combo4.JPEG" alt="Combo 4">
+            <div class="product-card" data-name="Combo 4 (Burguer + HotDog + Papas + Alitas)" data-price="270">
+                <img class="product-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=200&auto=format&fit=crop" alt="Combo 4">
                 <div class="product-details">
                     <div class="product-info">
                         <h3>Combo 4</h3>
@@ -300,15 +306,16 @@
         </div>
 
         <!-- SECCIÓN HAMBURGUESAS Y APERITIVOS -->
-        <div class="category-banner" style="background-image: url('hamburguesa-clasica.JPEG');" data-bg="hamburguesa-clasica.JPEG">
+        <div class="category-banner" style="background-image: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=500&auto=format&fit=crop');">
             <div class="category-overlay">
                 <h2>🍔 Hamburguesas y Aperitivos</h2>
             </div>
         </div>
         <div class="category-group">
+            
             <!-- HAMBURGUESA DOBLE CARNE -->
             <div class="product-card" data-name="Hamburguesa Doble Carne" data-price="100">
-                <img class="product-img" src="hamburguesa-doble.JPEG" alt="Hamburguesa Doble Carne">
+                <img class="product-img" src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?q=80&w=200&auto=format&fit=crop" alt="Hamburguesa Doble">
                 <div class="product-details">
                     <div class="product-info">
                         <h3>Doble Carne</h3>
@@ -327,7 +334,7 @@
 
             <!-- HAMBURGUESA CLÁSICA -->
             <div class="product-card" data-name="Hamburguesa Clásica" data-price="75">
-                <img class="product-img" src="hamburguesa-clasica.JPEG" alt="Hamburguesa Clásica">
+                <img class="product-img" src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=200&auto=format&fit=crop" alt="Hamburguesa Clásica">
                 <div class="product-details">
                     <div class="product-info">
                         <h3>Clásica</h3>
@@ -346,7 +353,7 @@
 
             <!-- HOTDOG SENCILLO -->
             <div class="product-card" data-name="Hotdog Sencillo" data-price="35">
-                <img class="product-img" src="hotdog.JPEG" alt="Hotdog Sencillo">
+                <img class="product-img" src="https://images.unsplash.com/photo-1619740455993-9e612b1af08a?q=80&w=200&auto=format&fit=crop" alt="Hotdog">
                 <div class="product-details">
                     <div class="product-info">
                         <h3>Hotdog Sencillo</h3>
@@ -365,11 +372,11 @@
 
             <!-- PAPAS A LA FRANCESA -->
             <div class="product-card" data-name="Papas a la Francesa" data-price="50">
-                <img class="product-img" src="papas-francesa.JPEG" alt="Papas a la Francesa">
+                <img class="product-img" src="https://images.unsplash.com/photo-1576107232684-1279f390859f?q=80&w=200&auto=format&fit=crop" alt="Papas Francesa">
                 <div class="product-details">
                     <div class="product-info">
                         <h3>Papas Francesa</h3>
-                        <p>Crujientes papas fritas sazonadas en su punto.</p>
+                        <p>Crujientes papas fritas sazonadas.</p>
                     </div>
                     <div class="price-controls-row">
                         <div class="price">$50</div>
@@ -384,7 +391,7 @@
 
             <!-- SALCHIPAPAS -->
             <div class="product-card" data-name="Salchipapas" data-price="80">
-                <img class="product-img" src="salchipapas.JPEG" alt="Salchipapas">
+                <img class="product-img" src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?q=80&w=200&auto=format&fit=crop" alt="Salchipapas">
                 <div class="product-details">
                     <div class="product-info">
                         <h3>Salchipapas</h3>
@@ -403,7 +410,7 @@
 
             <!-- ALITAS -->
             <div class="product-card" data-name="Alitas" data-price="100">
-                <img class="product-img" src="alitas.JPEG" alt="Alitas">
+                <img class="product-img" src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?q=80&w=200&auto=format&fit=crop" alt="Alitas">
                 <div class="product-details">
                     <div class="product-info">
                         <h3>Alitas</h3>
@@ -427,15 +434,16 @@
         </div>
 
         <!-- SECCIÓN RECREACIÓN / BILLAR -->
-        <div class="category-banner" style="background-image: url('mesa-billar.JPEG');" data-bg="mesa-billar.JPEG">
+        <div class="category-banner" style="background-image: url('https://images.unsplash.com/photo-1544192240-4a34fed0104c?q=80&w=500&auto=format&fit=crop');">
             <div class="category-overlay">
                 <h2>🎱 Área de Billar</h2>
             </div>
         </div>
         <div class="category-group">
+            
             <!-- RENTA BILLAR -->
             <div class="product-card" data-name="Renta de Mesa de Billar (Hora)" data-price="50">
-                <img class="product-img" src="mesa-billar.JPEG" alt="Mesa de Billar">
+                <img class="product-img" src="https://images.unsplash.com/photo-1606132427049-2e74285ab36a?q=80&w=300&auto=format&fit=crop" alt="Mesa de Billar Profesional">
                 <div class="product-details">
                     <div class="product-info">
                         <h3>Mesa de Billar</h3>
@@ -454,19 +462,20 @@
         </div>
 
         <!-- SECCIÓN BEBIDAS Y BARRA -->
-        <div class="category-banner" style="background-image: url('cubetazo-cerveza.JPEG');" data-bg="cubetazo-cerveza.JPEG">
+        <div class="category-banner" style="background-image: url('https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?q=80&w=500&auto=format&fit=crop');">
             <div class="category-overlay">
                 <h2>🍺 Bebidas y Barra</h2>
             </div>
         </div>
         <div class="category-group">
+            
             <!-- CUBETAZO -->
             <div class="product-card" data-name="Cubetazo" data-price="150">
-                <img class="product-img" src="cubetazo-cerveza.JPEG" alt="Cubetazo con cervezas">
+                <img class="product-img" src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?q=80&w=300&auto=format&fit=crop" alt="Cubeta de metal con cervezas y hielo">
                 <div class="product-details">
                     <div class="product-info">
                         <h3>Cubetazo</h3>
-                        <p>Cubeta metálica con hielo y cervezas bien heladas.</p>
+                        <p>Cubeta metálica repleta de hielo y cervezas bien frías.</p>
                     </div>
                     <div class="price-controls-row">
                         <div class="price">$150</div>
@@ -481,11 +490,11 @@
 
             <!-- MICHELADA -->
             <div class="product-card" data-name="Michelada" data-price="100">
-                <img class="product-img" src="michelada-mexicana.JPEG" alt="Michelada Mexicana">
+                <img class="product-img" src="https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?q=80&w=300&auto=format&fit=crop" alt="Michelada Mexicana Preparada">
                 <div class="product-details">
                     <div class="product-info">
                         <h3>Michelada</h3>
-                        <p>Auténtica michelada mexicana preparada con limón, sal, chile y salsas.</p>
+                        <p>Auténtica michelada mexicana escarchada con limón, sal, chile y salsas.</p>
                     </div>
                     <div class="price-controls-row">
                         <div class="price">$100</div>
@@ -500,11 +509,11 @@
 
             <!-- CANTARITO -->
             <div class="product-card" data-name="Cantarito" data-price="100">
-                <img class="product-img" src="cantarito-barro.JPEG" alt="Cantarito de Barro preparado">
+                <img class="product-img" src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=300&auto=format&fit=crop" alt="Cantarito de barro preparado con citricos">
                 <div class="product-details">
                     <div class="product-info">
                         <h3>Cantaritos</h3>
-                        <p>Vaso tradicional de barro con cerveza preparada, cítricos y escarchado.</p>
+                        <p>Tradicional jarro de barro con bebida preparada, cítricos y escarchado.</p>
                     </div>
                     <select class="variant-select" onchange="updateVariant(this)">
                         <option value="0">Chico ($100)</option>
@@ -522,12 +531,12 @@
             </div>
 
             <!-- CORONA 1/4 -->
-            <div class="product-card" data-name="Corona 1/4 (210ml)" data-price="15">
-                <img class="product-img" src="corona-cuartito.JPEG" alt="Cerveza Corona 210ml">
+            <div class="product-card" data-name="Corona 1/4" data-price="15">
+                <img class="product-img" src="https://images.unsplash.com/photo-1584225065152-4a1454aa3d4e?q=80&w=300&auto=format&fit=crop" alt="Cerveza Corona Cuartito 210ml">
                 <div class="product-details">
                     <div class="product-info">
                         <h3>Corona 1/4</h3>
-                        <p>Cerveza Corona de 210ml en botella de vidrio, bien fría.</p>
+                        <p>Cerveza Corona presentación cuartito de 210ml, bien helada.</p>
                     </div>
                     <div class="price-controls-row">
                         <div class="price">$15</div>
@@ -541,12 +550,12 @@
             </div>
 
             <!-- VICTORIA 1/4 -->
-            <div class="product-card" data-name="Victoria 1/4 (210ml)" data-price="15">
-                <img class="product-img" src="victoria-cuartito.JPEG" alt="Cerveza Victoria 210ml">
+            <div class="product-card" data-name="Victoria 1/4" data-price="15">
+                <img class="product-img" src="https://images.unsplash.com/photo-1608270586620-248524c67de9?q=80&w=300&auto=format&fit=crop" alt="Cerveza Victoria Cuartito 210ml">
                 <div class="product-details">
                     <div class="product-info">
                         <h3>Victoria 1/4</h3>
-                        <p>Cerveza Victoria de 210ml en botella de vidrio, directo de nevera.</p>
+                        <p>Cerveza Victoria presentación cuartito de 210ml, directo de nevera.</p>
                     </div>
                     <div class="price-controls-row">
                         <div class="price">$15</div>
@@ -560,12 +569,12 @@
             </div>
 
             <!-- VICTORIA LATÓN -->
-            <div class="product-card" data-name="Victoria Latón (473ml)" data-price="30">
-                <img class="product-img" src="victoria-lata-grande.JPEG" alt="Victoria Latón">
+            <div class="product-card" data-name="Victoria Latón" data-price="30">
+                <img class="product-img" src="https://images.unsplash.com/photo-1625244695851-1fc873990602?q=80&w=300&auto=format&fit=crop" alt="Cerveza en lata grande 473ml">
                 <div class="product-details">
                     <div class="product-info">
                         <h3>Victoria Latón</h3>
-                        <p>Cerveza Victoria en su version de lata de 473ml helada.</p>
+                        <p>Cerveza en su versión de lata grande de 473ml bien fría.</p>
                     </div>
                     <div class="price-controls-row">
                         <div class="price">$30</div>
@@ -580,11 +589,11 @@
 
             <!-- LATAS REFRESCOS -->
             <div class="product-card" data-name="Lata de Refresco" data-price="25">
-                <img class="product-img" src="variedad-latas.JPEG" alt="Variedad de refrescos en lata">
+                <img class="product-img" src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=300&auto=format&fit=crop" alt="Variedad de refrescos en lata">
                 <div class="product-details">
                     <div class="product-info">
                         <h3>Latas Refrescos</h3>
-                        <p>Gran variedad de marcas y sabores en lata fría.</p>
+                        <p>Variedad de sabores y marcas de refresco en lata helada.</p>
                     </div>
                     <div class="price-controls-row">
                         <div class="price">$25</div>
@@ -599,11 +608,11 @@
 
             <!-- COCA COLA -->
             <div class="product-card" data-name="Coca Cola 600ml" data-price="25">
-                <img class="product-img" src="coca-600.JPEG" alt="Coca Cola 600ml">
+                <img class="product-img" src="https://images.unsplash.com/photo-1554866585-cd94860890b7?q=80&w=300&auto=format&fit=crop" alt="Coca Cola Botella Desechable">
                 <div class="product-details">
                     <div class="product-info">
                         <h3>Coca 600ml</h3>
-                        <p>Versión en botella desechable de 600 ml original y refrescante.</p>
+                        <p>Presentación en botella desechable de 600 ml original y refrescante.</p>
                     </div>
                     <div class="price-controls-row">
                         <div class="price">$25</div>
@@ -618,11 +627,11 @@
 
             <!-- REFRESCO 1.5 -->
             <div class="product-card" data-name="Coca Cola 1.5L" data-price="35">
-                <img class="product-img" src="coca-15L.JPEG" alt="Coca Cola 1.5L">
+                <img class="product-img" src="https://images.unsplash.com/photo-1629245482354-a40e9b664721?q=80&w=300&auto=format&fit=crop" alt="Coca Cola Grande 1.5L">
                 <div class="product-details">
                     <div class="product-info">
                         <h3>Refresco 1.5L</h3>
-                        <p>Botella grande de Coca-Cola de 1.5 Litros para compartir.</p>
+                        <p>Botella grande de Coca-Cola de 1.5 Litros ideal para compartir.</p>
                     </div>
                     <div class="price-controls-row">
                         <div class="price">$35</div>
@@ -637,11 +646,11 @@
 
             <!-- VOLT -->
             <div class="product-card" data-name="Volt" data-price="25">
-                <img class="product-img" src="volt-energetica.JPEG" alt="Volt Bebida Energética">
+                <img class="product-img" src="https://images.unsplash.com/photo-1622543953495-6d7af2495c6e?q=80&w=300&auto=format&fit=crop" alt="Bebida Energetica Volt">
                 <div class="product-details">
                     <div class="product-info">
                         <h3>Volt</h3>
-                        <p>Bebida energética Volt para activar toda tu energía en el palenque.</p>
+                        <p>Bebida energética Volt para activar toda tu energía en el juego.</p>
                     </div>
                     <div class="price-controls-row">
                         <div class="price">$25</div>
@@ -656,11 +665,11 @@
 
             <!-- AGUA MINERAL -->
             <div class="product-card" data-name="Agua Mineral Ciel 600ml" data-price="25">
-                <img class="product-img" src="ciel-600.JPEG" alt="Agua Mineral Ciel 600ml">
+                <img class="product-img" src="https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?q=80&w=300&auto=format&fit=crop" alt="Agua Mineral Ciel">
                 <div class="product-details">
                     <div class="product-info">
                         <h3>Agua Mineral 600ml</h3>
-                        <p>Agua de la marca Ciel mineralizada, presentación de 600 ml.</p>
+                        <p>Agua mineral de la marca Ciel en su presentación de 600 ml.</p>
                     </div>
                     <div class="price-controls-row">
                         <div class="price">$25</div>
@@ -675,11 +684,11 @@
 
             <!-- AGUA NATURAL -->
             <div class="product-card" data-name="Agua Bonafont 600ml" data-price="15">
-                <img class="product-img" src="bonafont-600.JPEG" alt="Agua Bonafont 600ml">
+                <img class="product-img" src="https://images.unsplash.com/photo-1548839130-3bf96d5c8db4?q=80&w=300&auto=format&fit=crop" alt="Agua Natural Bonafont">
                 <div class="product-details">
                     <div class="product-info">
                         <h3>Agua 600ml</h3>
-                        <p>Agua purificada natural de la marca Bonafont de 600 ml.</p>
+                        <p>Agua purificada natural de la marca Bonafont botella de 600 ml.</p>
                     </div>
                     <div class="price-controls-row">
                         <div class="price">$15</div>
@@ -691,6 +700,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
         <!-- FORMULARIO DE DATOS -->
@@ -725,38 +735,6 @@
 
     <script>
         const WHATSAPP_NUMBER = "529221963473"; 
-
-        // AUTO-CORRECTOR DE EXTENSIONES (MAYÚSCULAS / MINÚSCULAS)
-        document.addEventListener("DOMContentLoaded", () => {
-            // Corregir imágenes de productos
-            document.querySelectorAll(".product-img, .logo-img").forEach(img => {
-                img.onerror = function() {
-                    if (this.src.endsWith(".JPEG")) {
-                        this.src = this.src.replace(".JPEG", ".jpeg");
-                    } else if (this.src.endsWith(".jpeg")) {
-                        this.src = this.src.replace(".jpeg", ".JPEG");
-                    }
-                };
-            });
-
-            // Corregir banners de fondo
-            document.querySelectorAll(".category-banner").forEach(banner => {
-                const imgUrl = banner.getAttribute("data-bg");
-                const testImg = new Image();
-                testImg.src = imgUrl;
-                testImg.onerror = function() {
-                    let fallback = imgUrl.endsWith(".JPEG") ? imgUrl.replace(".JPEG", ".jpeg") : imgUrl.replace(".jpeg", ".JPEG");
-                    banner.style.backgroundImage = `url('${fallback}')`;
-                };
-            });
-
-            // Corregir fondo general del body
-            const bodyTest = new Image();
-            bodyTest.src = 'mesa-billar.JPEG';
-            bodyTest.onerror = function() {
-                document.body.style.backgroundImage = "linear-gradient(rgba(10, 10, 10, 0.92), rgba(10, 10, 10, 0.92)), url('mesa-billar.jpeg')";
-            };
-        });
 
         function changeQty(button, value) {
             const qtySpan = button.parentElement.querySelector('.qty');
