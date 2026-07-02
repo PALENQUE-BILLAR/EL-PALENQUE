@@ -10,7 +10,7 @@
             --accent-fire: #FF4500;
             --accent-red: #E62427;
             --dark: #0A0A0A;
-            --card-bg: rgba(22, 22, 22, 0.85);
+            --card-bg: rgba(22, 22, 22, 0.9);
             --text-light: #FFFFFF;
         }
         
@@ -18,13 +18,13 @@
         
         body { 
             background-color: var(--dark); 
-            background-image: linear-gradient(rgba(10, 10, 10, 0.88), rgba(10, 10, 10, 0.88)), 
+            background-image: linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)), 
                               url('https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=600&auto=format&fit=crop');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
             color: var(--text-light); 
-            padding-bottom: 100px; 
+            padding-bottom: 110px; 
         }
         
         header { 
@@ -42,7 +42,7 @@
         }
         
         .logo-img {
-            max-width: 160px;
+            max-width: 150px;
             height: auto;
             border-radius: 50%;
             box-shadow: 0 0 20px rgba(255, 69, 0, 0.6);
@@ -59,7 +59,7 @@
         .category-banner {
             width: 100%;
             height: 110px;
-            border-radius: 8px 8px 0 0;
+            border-radius: 12px 12px 0 0;
             background-size: cover;
             background-position: center;
             position: relative;
@@ -73,7 +73,7 @@
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
             background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%);
-            border-radius: 8px 8px 0 0;
+            border-radius: 12px 12px 0 0;
             display: flex;
             align-items: center;
             padding-left: 20px;
@@ -89,21 +89,22 @@
         }
         
         .category-group {
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.3);
             padding: 10px;
-            border-radius: 0 0 8px 8px;
+            border-radius: 0 0 12px 12px;
             border: 1px solid rgba(255, 69, 0, 0.2);
             border-top: none;
             margin-bottom: 20px;
         }
         
+        /* Tarjeta de Producto Estilo App con Imagen */
         .product-card { 
             background-color: var(--card-bg); 
-            border-radius: 6px; 
-            padding: 15px; 
-            margin-bottom: 10px; 
+            border-radius: 8px; 
+            padding: 12px; 
+            margin-bottom: 12px; 
             display: flex; 
-            justify-content: space-between; 
+            gap: 12px;
             align-items: center; 
             box-shadow: 0 4px 6px rgba(0,0,0,0.4); 
             backdrop-filter: blur(3px);
@@ -111,22 +112,44 @@
         }
         
         .product-card:last-child { margin-bottom: 0; }
-        .product-info h3 { font-size: 1.1rem; margin-bottom: 5px; color: #fff; text-shadow: 1px 1px 2px #000; }
-        .product-info p { font-size: 0.85rem; color: #ccc; margin-bottom: 5px; line-height: 1.2; }
+        
+        .product-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            flex-shrink: 0;
+        }
+
+        .product-details {
+            flex-grow: 1;
+        }
+
+        .product-info h3 { font-size: 1.05rem; margin-bottom: 4px; color: #fff; text-shadow: 1px 1px 2px #000; font-weight: bold; }
+        .product-info p { font-size: 0.8rem; color: #bbb; margin-bottom: 6px; line-height: 1.3; }
+        
+        .price-controls-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 4px;
+        }
+
         .price { color: var(--primary); font-weight: bold; font-size: 1.1rem; text-shadow: 1px 1px 2px #000; }
         
-        .variant-select { background: #222; color: white; border: 1px solid var(--accent-fire); padding: 5px; border-radius: 4px; margin-top: 5px; font-size: 0.85rem; outline: none; }
+        .variant-select { background: #1a1a1a; color: white; border: 1px solid var(--accent-fire); padding: 4px; border-radius: 4px; margin-bottom: 6px; font-size: 0.8rem; outline: none; width: 100%; max-width: 180px; }
 
         .controls { display: flex; align-items: center; gap: 10px; }
-        .btn-qty { background-color: var(--accent-red); border: none; width: 34px; height: 34px; border-radius: 4px; font-size: 1.2rem; font-weight: bold; cursor: pointer; color: white; transition: background 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.4); }
+        .btn-qty { background-color: var(--accent-red); border: none; width: 30px; height: 30px; border-radius: 4px; font-size: 1.1rem; font-weight: bold; cursor: pointer; color: white; transition: background 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.4); }
         .btn-qty:hover { background-color: var(--accent-fire); }
-        .qty { font-size: 1.1rem; min-width: 20px; text-align: center; font-weight: bold; text-shadow: 1px 1px 2px #000; }
+        .qty { font-size: 1.05rem; min-width: 18px; text-align: center; font-weight: bold; text-shadow: 1px 1px 2px #000; }
 
         /* Tarjeta de Información Establecimiento */
         .info-card {
             background-color: var(--card-bg);
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 12px;
             margin-top: 25px;
             border: 1px solid rgba(252, 184, 19, 0.4);
             box-shadow: 0 4px 10px rgba(0,0,0,0.6);
@@ -138,7 +161,7 @@
         .info-item p { color: #fff; font-size: 1rem; }
 
         /* Formulario de datos */
-        .delivery-form { background-color: var(--card-bg); padding: 20px; border-radius: 8px; margin-top: 25px; border: 1px solid rgba(255, 69, 0, 0.3); box-shadow: 0 4px 10px rgba(0,0,0,0.6); backdrop-filter: blur(3px); }
+        .delivery-form { background-color: var(--card-bg); padding: 20px; border-radius: 12px; margin-top: 25px; border: 1px solid rgba(255, 69, 0, 0.3); box-shadow: 0 4px 10px rgba(0,0,0,0.6); backdrop-filter: blur(3px); }
         .delivery-form h2 { color: var(--primary); margin-bottom: 15px; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; text-shadow: 1px 1px 2px #000; }
         .form-group { margin-bottom: 15px; }
         .form-group label { display: block; margin-bottom: 5px; font-size: 0.9rem; color: #ddd; }
@@ -165,7 +188,6 @@
 
     <div class="container">
         
-        <!-- INFORMACIÓN DEL ESTABLECIMIENTO -->
         <div class="info-card">
             <h2>🎱 El Punto de Reunión</h2>
             <div class="info-grid">
@@ -180,192 +202,248 @@
             </div>
         </div>
 
-        <!-- SECCIÓN COMBOS -->
         <div class="category-banner" style="background-image: url('https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?q=80&w=500&auto=format&fit=crop');">
             <div class="category-overlay">
                 <h2>⚡ Súper Combos</h2>
             </div>
         </div>
         <div class="category-group">
+            
             <div class="product-card" data-name="Combo 1 (Burguer + HotDog + Papas)" data-price="160">
-                <div class="product-info">
-                    <h3>Combo 1</h3>
-                    <p>Hamburguesa, Hot Dog, Papas <br><span style="color:var(--primary)">+ Refresco 1.5L Gratis</span></p>
-                    <div class="price">$160</div>
+                <img class="product-img" src="https://images.unsplash.com/photo-1610614819513-58e34989848b?q=80&w=200&auto=format&fit=crop" alt="Combo 1">
+                <div class="product-details">
+                    <div class="product-info">
+                        <h3>Combo 1</h3>
+                        <p>Hamburguesa, Hot Dog, Papas Fritas <br><span style="color:var(--primary)">+ Refresco 1.5L Gratis</span></p>
+                    </div>
                     <select class="variant-select" onchange="updateVariant(this)">
                         <option value="0">Carne Sencilla (+$0)</option>
                         <option value="30">Doble Carne (+$30)</option>
                     </select>
-                </div>
-                <div class="controls">
-                    <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
-                    <span class="qty">0</span>
-                    <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                    <div class="price-controls-row">
+                        <div class="price">$160</div>
+                        <div class="controls">
+                            <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
+                            <span class="qty">0</span>
+                            <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                        </div>
+                    </div>
                 </div>
             </div>
+
             <div class="product-card" data-name="Combo 2 (Burguer + HotDog + Alitas)" data-price="220">
-                <div class="product-info">
-                    <h3>Combo 2</h3>
-                    <p>Hamburguesa, Hot Dog, Alitas <br><span style="color:var(--primary)">+ Refresco 1.5L Gratis</span></p>
-                    <div class="price">$220</div>
+                <img class="product-img" src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?q=80&w=200&auto=format&fit=crop" alt="Combo 2">
+                <div class="product-details">
+                    <div class="product-info">
+                        <h3>Combo 2</h3>
+                        <p>Hamburguesa, Hot Dog, Alitas Crujientes <br><span style="color:var(--primary)">+ Refresco 1.5L Gratis</span></p>
+                    </div>
                     <select class="variant-select" onchange="updateVariant(this)">
                         <option value="0">Carne Sencilla (+$0)</option>
                         <option value="30">Doble Carne (+$30)</option>
                     </select>
-                </div>
-                <div class="controls">
-                    <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
-                    <span class="qty">0</span>
-                    <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                    <div class="price-controls-row">
+                        <div class="price">$220</div>
+                        <div class="controls">
+                            <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
+                            <span class="qty">0</span>
+                            <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- SECCIÓN HAMBURGUESAS -->
         <div class="category-banner" style="background-image: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=500&auto=format&fit=crop');">
             <div class="category-overlay">
                 <h2>🍔 Hamburguesas</h2>
             </div>
         </div>
         <div class="category-group">
+            
             <div class="product-card" data-name="Hamburguesa Doble Carne" data-price="100">
-                <div class="product-info">
-                    <h3>Hamburguesa Doble Carne</h3>
-                    <p>Con doble porción de carne jugosa a la parrilla, queso y aderezos</p>
-                    <div class="price">$100</div>
-                </div>
-                <div class="controls">
-                    <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
-                    <span class="qty">0</span>
-                    <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                <img class="product-img" src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?q=80&w=200&auto=format&fit=crop" alt="Hamburguesa Doble">
+                <div class="product-details">
+                    <div class="product-info">
+                        <h3>Hamburguesa Doble Carne</h3>
+                        <p>Doble porción de carne premium, queso fundido y aderezos de la casa.</p>
+                    </div>
+                    <div class="price-controls-row">
+                        <div class="price">$100</div>
+                        <div class="controls">
+                            <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
+                            <span class="qty">0</span>
+                            <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                        </div>
+                    </div>
                 </div>
             </div>
+
             <div class="product-card" data-name="Hamburguesa Clásica" data-price="75">
-                <div class="product-info">
-                    <h3>Hamburguesa Clásica</h3>
-                    <p>La tradicional con excelente sabor, verdura fresca y queso</p>
-                    <div class="price">$75</div>
-                </div>
-                <div class="controls">
-                    <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
-                    <span class="qty">0</span>
-                    <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                <img class="product-img" src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=200&auto=format&fit=crop" alt="Hamburguesa Clásica">
+                <div class="product-details">
+                    <div class="product-info">
+                        <h3>Hamburguesa Clásica</h3>
+                        <p>La tradicional con excelente sabor, verdura fresca, queso y aderezos.</p>
+                    </div>
+                    <div class="price-controls-row">
+                        <div class="price">$75</div>
+                        <div class="controls">
+                            <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
+                            <span class="qty">0</span>
+                            <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- SECCIÓN RECREACIÓN / BILLAR -->
         <div class="category-banner" style="background-image: url('https://images.unsplash.com/photo-1544192240-4a34fed0104c?q=80&w=500&auto=format&fit=crop');">
             <div class="category-overlay">
                 <h2>🎱 Área de Billar</h2>
             </div>
         </div>
         <div class="category-group">
+            
             <div class="product-card" data-name="Renta de Mesa de Billar (Hora)" data-price="50">
-                <div class="product-info">
-                    <h3>Renta de Mesa de Billar</h3>
-                    <p>Precio por hora de juego. Excelente ambiente.</p>
-                    <div class="price">$50 / hr</div>
-                </div>
-                <div class="controls">
-                    <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
-                    <span class="qty">0</span>
-                    <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                <img class="product-img" src="https://images.unsplash.com/photo-1571945153237-4929e78394a9?q=80&w=200&auto=format&fit=crop" alt="Mesa de Billar">
+                <div class="product-details">
+                    <div class="product-info">
+                        <h3>Renta de Mesa de Billar</h3>
+                        <p>Precio por hora de juego. Disfruta con amigos en un gran ambiente.</p>
+                    </div>
+                    <div class="price-controls-row">
+                        <div class="price">$50 / hr</div>
+                        <div class="controls">
+                            <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
+                            <span class="qty">0</span>
+                            <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- SECCIÓN BEBIDAS Y BARRA -->
         <div class="category-banner" style="background-image: url('https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?q=80&w=500&auto=format&fit=crop');">
             <div class="category-overlay">
                 <h2>🍺 Bebidas y Barra</h2>
             </div>
         </div>
         <div class="category-group">
+            
             <div class="product-card" data-name="Cubetazo" data-price="150">
-                <div class="product-info">
-                    <h3>Cubetazo</h3>
-                    <p>Cervezas bien frías para disfrutar la partida</p>
-                    <div class="price">$150</div>
-                </div>
-                <div class="controls">
-                    <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
-                    <span class="qty">0</span>
-                    <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                <img class="product-img" src="https://images.unsplash.com/photo-1566633806327-68e152aaf26d?q=80&w=200&auto=format&fit=crop" alt="Cubetazo">
+                <div class="product-details">
+                    <div class="product-info">
+                        <h3>Cubetazo</h3>
+                        <p>Hielera llena de cervezas bien heladas para acompañar tus partidas.</p>
+                    </div>
+                    <div class="price-controls-row">
+                        <div class="price">$150</div>
+                        <div class="controls">
+                            <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
+                            <span class="qty">0</span>
+                            <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="product-card" data-name="Michelada" data-price="100">
-                <div class="product-info">
-                    <h3>Michelada</h3>
-                    <p>Escarchada con limón, sal y tu mezcla favorita</p>
-                    <div class="price">$100</div>
-                </div>
-                <div class="controls">
-                    <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
-                    <span class="qty">0</span>
-                    <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                <img class="product-img" src="https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?q=80&w=200&auto=format&fit=crop" alt="Michelada">
+                <div class="product-details">
+                    <div class="product-info">
+                        <h3>Michelada</h3>
+                        <p>Perfectamente escarchada con limón, sal, chile en polvo y salsas.</p>
+                    </div>
+                    <div class="price-controls-row">
+                        <div class="price">$100</div>
+                        <div class="controls">
+                            <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
+                            <span class="qty">0</span>
+                            <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="product-card" data-name="Cantarito" data-price="100">
-                <div class="product-info">
-                    <h3>Cantaritos</h3>
-                    <p>Preparados frescos con cítricos y el toque perfecto</p>
-                    <div class="price">$100</div>
+                <img class="product-img" src="https://images.unsplash.com/photo-1536935338788-846bb9981813?q=80&w=200&auto=format&fit=crop" alt="Cantaritos">
+                <div class="product-details">
+                    <div class="product-info">
+                        <h3>Cantaritos</h3>
+                        <p>Preparados tradicionales ultra frescos con cítricos e ingredientes selectos.</p>
+                    </div>
                     <select class="variant-select" onchange="updateVariant(this)">
                         <option value="0">Chico ($100)</option>
                         <option value="50">Grande (+$50)</option>
                     </select>
-                </div>
-                <div class="controls">
-                    <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
-                    <span class="qty">0</span>
-                    <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                    <div class="price-controls-row">
+                        <div class="price">$100</div>
+                        <div class="controls">
+                            <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
+                            <span class="qty">0</span>
+                            <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="product-card" data-name="Corona 1/4" data-price="20">
-                <div class="product-info">
-                    <h3>Corona 1/4</h3>
-                    <p>Cerveza Corona bien fría personal</p>
-                    <div class="price">$20</div>
-                </div>
-                <div class="controls">
-                    <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
-                    <span class="qty">0</span>
-                    <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                <img class="product-img" src="https://images.unsplash.com/photo-1608270586620-248524c67de9?q=80&w=200&auto=format&fit=crop" alt="Corona 1/4">
+                <div class="product-details">
+                    <div class="product-info">
+                        <h3>Corona 1/4</h3>
+                        <p>Cerveza Corona presentación cuartito, bien fría.</p>
+                    </div>
+                    <div class="price-controls-row">
+                        <div class="price">$20</div>
+                        <div class="controls">
+                            <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
+                            <span class="qty">0</span>
+                            <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="product-card" data-name="Victoria 1/4" data-price="20">
-                <div class="product-info">
-                    <h3>Victoria 1/4</h3>
-                    <p>Cerveza Victoria bien fría personal</p>
-                    <div class="price">$20</div>
-                </div>
-                <div class="controls">
-                    <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
-                    <span class="qty">0</span>
-                    <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                <img class="product-img" src="https://images.unsplash.com/photo-1560512823-829485b8bf24?q=80&w=200&auto=format&fit=crop" alt="Victoria 1/4">
+                <div class="product-details">
+                    <div class="product-info">
+                        <h3>Victoria 1/4</h3>
+                        <p>Cerveza Victoria presentación cuartito, bien fría.</p>
+                    </div>
+                    <div class="price-controls-row">
+                        <div class="price">$20</div>
+                        <div class="controls">
+                            <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
+                            <span class="qty">0</span>
+                            <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="product-card" data-name="Victoria Latón" data-price="30">
-                <div class="product-info">
-                    <h3>Victoria Latón</h3>
-                    <p>Cerveza Victoria presentación latón bien fría</p>
-                    <div class="price">$30</div>
-                </div>
-                <div class="controls">
-                    <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
-                    <span class="qty">0</span>
-                    <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                <img class="product-img" src="https://images.unsplash.com/photo-1620072516444-ff2a39785633?q=80&w=200&auto=format&fit=crop" alt="Victoria Latón">
+                <div class="product-details">
+                    <div class="product-info">
+                        <h3>Victoria Latón</h3>
+                        <p>Cerveza Victoria presentación latón de buen tamaño, bien helada.</p>
+                    </div>
+                    <div class="price-controls-row">
+                        <div class="price">$30</div>
+                        <div class="controls">
+                            <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
+                            <span class="qty">0</span>
+                            <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- FORMULARIO DE DATOS -->
         <div class="delivery-form">
             <h2>👤 Datos para el Pedido / Mesa</h2>
             <div class="form-group">
@@ -387,7 +465,6 @@
         </div>
     </div>
 
-    <!-- BARRA INFERIOR -->
     <div class="cart-bar">
         <div class="cart-total">Total: <span id="total-display">$0</span></div>
         <button class="btn-send" onclick="enviarPedido()">
