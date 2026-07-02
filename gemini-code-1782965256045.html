@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Palenque - Menú Digital</title>
+    <style>
+        :root {
+            --primary: #FCB813;
+            --accent-fire: #FF4500;
+            --accent-red: #E62427;
+            --dark: #0A0A0A;
+            --card-bg: rgba(22, 22, 22, 0.85); /* Fondo translúcido */
+            --text-light: #FFFFFF;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Arial', sans-serif; }
+        
+        body { 
+            background-color: var(--dark); 
+            /* Imagen de fondo general (Hamburguesas/Parrilla) */
+            background-image: linear-gradient(rgba(10, 10, 10, 0.88), rgba(10, 10, 10, 0.88)), 
+                              url('https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=600&auto=format&fit=crop');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            color: var(--text-light); 
+            padding-bottom: 100px; 
+        }
+        
+        header { 
+            background: linear-gradient(180deg, rgba(31, 4, 5, 0.95) 0%, rgba(10, 10, 10, 0.95) 100%); 
+            text-align: center; 
+            padding: 35px 15px 25px 15px; 
+            border-bottom: 3px solid var(--accent-fire);
+        }
+        
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-img {
+            max-width: 160px;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255, 69, 0, 0.6);
+            margin-bottom: 15px;
+            border: 2px solid var(--accent-fire);
+        }
+
+        header h1 { font-size: 2.2rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 900; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
+        header p { font-weight: bold; margin-top: 5px; font-size: 1.1rem; letter-spacing: 2px; color: var(--primary); text-shadow: 1px 1px 2px rgba(0,0,0,0.8); }
+
+        .container { max-width: 600px; margin: 0 auto; padding: 15px; }
+        
+        /* Banners de Categorías */
+        .category-banner {
+            width: 100%;
+            height: 110px;
+            border-radius: 8px 8px 0 0;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            margin-top: 30px;
+            border: 1px solid rgba(255, 69, 0, 0.3);
+            border-bottom: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+        }
+        
+        /* Filtro oscuro sobre el banner para leer el texto */
+        .category-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%);
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+        }
+        
+        .category-overlay h2 {
+            color: var(--primary);
+            text-transform: uppercase;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px #000;
+            font-weight: 900;
+        }
+        
+        /* Contenedor de productos agrupados para conectar con el banner */
+        .category-group {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 10px;
+            border-radius: 0 0 8px 8px;
+            border: 1px solid rgba(255, 69, 0, 0.2);
+            border-top: none;
+            margin-bottom: 20px;
+        }
+        
+        .product-card { 
+            background-color: var(--card-bg); 
+            border-radius: 6px; 
+            padding: 15px; 
+            margin-bottom: 10px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.4); 
+            backdrop-filter: blur(3px); /* Efecto esmerilado elegante */
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .product-card:last-child { margin-bottom: 0; }
+        .product-info h3 { font-size: 1.1rem; margin-bottom: 5px; color: #fff; text-shadow: 1px 1px 2px #000; }
+        .product-info p { font-size: 0.85rem; color: #ccc; margin-bottom: 5px; line-height: 1.2; }
+        .price { color: var(--primary); font-weight: bold; font-size: 1.1rem; text-shadow: 1px 1px 2px #000; }
+        
+        .variant-select { background: #222; color: white; border: 1px solid var(--accent-fire); padding: 5px; border-radius: 4px; margin-top: 5px; font-size: 0.85rem; outline: none; }
+
+        .controls { display: flex; align-items: center; gap: 10px; }
+        .btn-qty { background-color: var(--accent-red); border: none; width: 34px; height: 34px; border-radius: 4px; font-size: 1.2rem; font-weight: bold; cursor: pointer; color: white; transition: background 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.4); }
+        .btn-qty:hover { background-color: var(--accent-fire); }
+        .qty { font-size: 1.1rem; min-width: 20px; text-align: center; font-weight: bold; text-shadow: 1px 1px 2px #000; }
+
+        /* Formulario de datos */
+        .delivery-form { background-color: var(--card-bg); padding: 20px; border-radius: 8px; margin-top: 35px; border: 1px solid rgba(255, 69, 0, 0.3); box-shadow: 0 4px 10px rgba(0,0,0,0.6); backdrop-filter: blur(3px); }
+        .delivery-form h2 { color: var(--primary); margin-bottom: 15px; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; text-shadow: 1px 1px 2px #000; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-size: 0.9rem; color: #ddd; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px; background: rgba(15,15,15,0.9); border: 1px solid #444; border-radius: 4px; color: white; font-size: 1rem; }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--accent-fire); outline: none; }
+
+        /* Barra fija inferior del Carrito */
+        .cart-bar { position: fixed; bottom: 0; left: 0; right: 0; background-color: rgba(0,0,0,0.95); padding: 15px; display: flex; justify-content: space-between; align-items: center; max-width: 600px; margin: 0 auto; border-top: 2px solid var(--accent-fire); z-index: 999; box-shadow: 0 -5px 15px rgba(0,0,0,0.8); }
+        .cart-total { font-size: 1.1rem; font-weight: bold; }
+        .cart-total span { color: var(--primary); }
+        .btn-send { background-color: #25D366; color: white; border: none; padding: 12px 20px; font-weight: bold; border-radius: 5px; cursor: pointer; font-size: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.4); text-transform: uppercase; letter-spacing: 0.5px; }
+        .btn-send:hover { background-color: #1ebd59; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.JPEG" alt="Logo El Palenque" class="logo-img">
+            <h1>EL PALENQUE</h1>
+        </div>
+        <p>SERVICIO A DOMICILIO</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- SECCIÓN COMBOS -->
+        <div class="category-banner" style="background-image: url('https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?q=80&w=500&auto=format&fit=crop');">
+            <div class="category-overlay">
+                <h2>⚡ Súper Combos</h2>
+            </div>
+        </div>
+        <div class="category-group">
+            <div class="product-card" data-name="Combo 1 (Burguer + HotDog + Papas)" data-price="160">
+                <div class="product-info">
+                    <h3>Combo 1</h3>
+                    <p>Hamburguesa, Hot Dog, Papas <br><span style="color:var(--primary)">+ Refresco 1.5L Gratis</span></p>
+                    <div class="price">$160</div>
+                    <select class="variant-select" onchange="updateVariant(this)">
+                        <option value="0">Carne Sencilla (+$0)</option>
+                        <option value="30">Doble Carne (+$30)</option>
+                    </select>
+                </div>
+                <div class="controls">
+                    <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
+                    <span class="qty">0</span>
+                    <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-name="Combo 2 (Burguer + HotDog + Alitas)" data-price="220">
+                <div class="product-info">
+                    <h3>Combo 2</h3>
+                    <p>Hamburguesa, Hot Dog, Alitas <br><span style="color:var(--primary)">+ Refresco 1.5L Gratis</span></p>
+                    <div class="price">$220</div>
+                    <select class="variant-select" onchange="updateVariant(this)">
+                        <option value="0">Carne Sencilla (+$0)</option>
+                        <option value="30">Doble Carne (+$30)</option>
+                    </select>
+                </div>
+                <div class="controls">
+                    <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
+                    <span class="qty">0</span>
+                    <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-name="Combo 3 (Burguer + Papas + Alitas)" data-price="230">
+                <div class="product-info">
+                    <h3>Combo 3</h3>
+                    <p>Hamburguesa, Papas, Alitas <br><span style="color:var(--primary)">+ Refresco 1.5L Gratis</span></p>
+                    <div class="price">$230</div>
+                    <select class="variant-select" onchange="updateVariant(this)">
+                        <option value="0">Carne Sencilla (+$0)</option>
+                        <option value="30">Doble Carne (+$30)</option>
+                    </select>
+                </div>
+                <div class="controls">
+                    <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
+                    <span class="qty">0</span>
+                    <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-name="Combo 4 (Burguer + HotDog + Papas + Alitas)" data-price="270">
+                <div class="product-info">
+                    <h3>Combo 4</h3>
+                    <p>Hamburguesa, Hot Dog, Papas, Alitas <br><span style="color:var(--primary)">+ Refresco 1.5L Gratis</span></p>
+                    <div class="price">$270</div>
+                    <select class="variant-select" onchange="updateVariant(this)">
+                        <option value="0">Carne Sencilla (+$0)</option>
+                        <option value="30">Doble Carne (+$30)</option>
+                    </select>
+                </div>
+                <div class="controls">
+                    <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
+                    <span class="qty">0</span>
+                    <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN HAMBURGUESAS -->
+        <div class="category-banner" style="background-image: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=500&auto=format&fit=crop');">
+            <div class="category-overlay">
+                <h2>🍔 Hamburguesas</h2>
+            </div>
+        </div>
+        <div class="category-group">
+            <div class="product-card" data-name="Hamburguesa Doble Carne" data-price="100">
+                <div class="product-info">
+                    <h3>Hamburguesa Doble Carne</h3>
+                    <p>Con doble porción de carne jugosa a la parrilla, queso y aderezos</p>
+                    <div class="price">$100</div>
+                </div>
+                <div class="controls">
+                    <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
+                    <span class="qty">0</span>
+                    <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-name="Hamburguesa Clásica" data-price="75">
+                <div class="product-info">
+                    <h3>Hamburguesa Clásica</h3>
+                    <p>La tradicional con excelente sabor, verdura fresca y queso</p>
+                    <div class="price">$75</div>
+                </div>
+                <div class="controls">
+                    <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
+                    <span class="qty">0</span>
+                    <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN HOTDOGS -->
+        <div class="category-banner" style="background-image: url('https://images.unsplash.com/photo-1627059310923-443207aa4d5a?q=80&w=500&auto=format&fit=crop');">
+            <div class="category-overlay">
+                <h2>🌭 Hot Dogs</h2>
+            </div>
+        </div>
+        <div class="category-group">
+            <div class="product-card" data-name="Hotdog Sencillo" data-price="35">
+                <div class="product-info">
+                    <h3>Hotdog Sencillo</h3>
+                    <p>Salchicha, queso, tomate, cebolla, chile, cátsup y mostaza</p>
+                    <div class="price">$35</div>
+                </div>
+                <div class="controls">
+                    <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
+                    <span class="qty">0</span>
+                    <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN PAPAS -->
+        <div class="category-banner" style="background-image: url('https://images.unsplash.com/photo-1576107232684-1279f390859f?q=80&w=500&auto=format&fit=crop');">
+            <div class="category-overlay">
+                <h2>🍟 Papas Fritas</h2>
+            </div>
+        </div>
+        <div class="category-group">
+            <div class="product-card" data-name="Papas a la Francesa" data-price="50">
+                <div class="product-info">
+                    <h3>Papas a la Francesa</h3>
+                    <p>Crujientes y doraditas, sazonadas en su punto</p>
+                    <div class="price">$50</div>
+                </div>
+                <div class="controls">
+                    <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
+                    <span class="qty">0</span>
+                    <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-name="Salchipapas" data-price="80">
+                <div class="product-info">
+                    <h3>Salchipapas</h3>
+                    <p>Salchicha picada, papas, queso fundido, crema y cátsup</p>
+                    <div class="price">$80</div>
+                </div>
+                <div class="controls">
+                    <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
+                    <span class="qty">0</span>
+                    <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN ALITAS -->
+        <div class="category-banner" style="background-image: url('https://images.unsplash.com/photo-1608039829572-78524f79c4c7?q=80&w=500&auto=format&fit=crop');">
+            <div class="category-overlay">
+                <h2>🍗 Alitas</h2>
+            </div>
+        </div>
+        <div class="category-group">
+            <div class="product-card" data-name="Alitas" data-price="100">
+                <div class="product-info">
+                    <h3>Orden de Alitas</h3>
+                    <p>Crujientes bañadas en tu salsa favorita ($100)</p>
+                    <select class="variant-select" id="salsa-alitas">
+                        <option value="Búfalo">Salsa: Búfalo 🌶️</option>
+                        <option value="BBQ">Salsa: BBQ 🍖</option>
+                        <option value="Mango Habanero">Salsa: Mango Habanero 🔥</option>
+                    </select>
+                </div>
+                <div class="controls">
+                    <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
+                    <span class="qty">0</span>
+                    <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- FORMULARIO DE DATOS -->
+        <div class="delivery-form">
+            <h2>👤 Datos de Envío</h2>
+            <div class="form-group">
+                <label for="nombre">Nombre Completo *</label>
+                <input type="text" id="nombre" placeholder="Ej. Juan Pérez">
+            </div>
+            <div class="form-group">
+                <label for="telefono">Número de Teléfono *</label>
+                <input type="tel" id="telefono" placeholder="Ej. 9221963473">
+            </div>
+            <div class="form-group">
+                <label for="direccion">Dirección de Entrega *</label>
+                <input type="text" id="direccion" placeholder="Calle, Número y Colonia">
+            </div>
+            <div class="form-group">
+                <label for="referencias">Descripción / Referencias de la casa *</label>
+                <textarea id="referencias" rows="3" placeholder="Ej. Portón negro, frente a la tienda..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- BARRA INFERIOR DEL CARRITO -->
+    <div class="cart-bar">
+        <div class="cart-total">Total: <span id="total-display">$0</span></div>
+        <button class="btn-send" onclick="enviarPedido()">
+            Enviar por WhatsApp
+        </button>
+    </div>
+
+    <script>
+        const WHATSAPP_NUMER = "9221963473"; 
+
+        function changeQty(button, value) {
+            const qtySpan = button.parentElement.querySelector('.qty');
+            let currentQty = parseInt(qtySpan.innerText);
+            currentQty += value;
+            if (currentQty < 0) currentQty = 0;
+            qtySpan.innerText = currentQty;
+            calculateTotal();
+        }
+
+        function updateVariant(select) {
+            const card = select.closest('.product-card');
+            const basePrice = parseInt(card.getAttribute('data-price'));
+            const extra = parseInt(select.value);
+            
+            const priceDisplay = card.querySelector('.price');
+            if(priceDisplay) {
+                priceDisplay.innerText = `$${basePrice + extra}`;
+            }
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            let total = 0;
+            document.querySelectorAll('.product-card').forEach(card => {
+                const qty = parseInt(card.querySelector('.qty').innerText);
+                if (qty > 0) {
+                    const basePrice = parseInt(card.getAttribute('data-price'));
+                    const select = card.querySelector('.variant-select');
+                    const extra = (select && select.id !== 'salsa-alitas') ? parseInt(select.value) : 0;
+                    total += (basePrice + extra) * qty;
+                }
+            });
+            document.getElementById('total-display').innerText = `$${total}`;
+        }
+
+        function enviarPedido() {
+            let articulos = [];
+            document.querySelectorAll('.product-card').forEach(card => {
+                const qty = parseInt(card.querySelector('.qty').innerText);
+                if (qty > 0) {
+                    let name = card.getAttribute('data-name');
+                    const select = card.querySelector('.variant-select');
+                    
+                    if (select) {
+                        if (select.id === 'salsa-alitas') {
+                            name += ` [Salsa: ${select.value}]`;
+                        } else if (parseInt(select.value) > 0) {
+                            name += ` (Con Doble Carne)`;
+                        } else {
+                            name += ` (Carne Sencilla)`;
+                        }
+                    }
+                    articulos.push(`• ${qty}x ${name}`);
+                }
+            });
+
+            if (articulos.length === 0) {
+                alert("Por favor, agrega al menos un producto a tu pedido.");
+                return;
+            }
+
+            const nombre = document.getElementById('nombre').value.trim();
+            const telefono = document.getElementById('telefono').value.trim();
+            const direccion = document.getElementById('direccion').value.trim();
+            const referencias = document.getElementById('referencias').value.trim();
+
+            if (!nombre || !telefono || !direccion || !referencias) {
+                alert("Por favor, llena todos los campos de tus datos de envío.");
+                return;
+            }
+
+            let mensaje = `¡Hola! Me gustaría hacer un pedido desde la página web:\n\n`;
+            mensaje += `🍔 *DETALLE DEL PEDIDO:*\n`;
+            mensaje += articulos.join('\n') + `\n\n`;
+            mensaje += `👤 *DATOS DE ENTREGA:*\n`;
+            mensaje += `• *Nombre:* ${nombre}\n`;
+            mensaje += `• *Teléfono:* ${telefono}\n`;
+            mensaje += `• *Dirección:* ${direccion}\n`;
+            mensaje += `• *Referencias:* ${referencias}\n\n`;
+            mensaje += `*¿Tiene disponible este pedido en stock para preparar ahora mismo?*`;
+
+            const url = `https://wa.me/${WHATSAPP_NUMER}?text=${encodeURIComponent(mensaje)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
