@@ -325,11 +325,11 @@
                 </div>
             </div>
 
-            <div class="product-card" data-name="Cubeta Corona" data-price="0">
+            <div class="product-card" data-name="Corona 1/4" data-price="20">
                 <div class="product-info">
-                    <h3>Cubeta Corona</h3>
-                    <p>Cervezas Corona bien frías</p>
-                    <div class="price">--</div>
+                    <h3>Corona 1/4</h3>
+                    <p>Cerveza Corona bien fría personal</p>
+                    <div class="price">$20</div>
                 </div>
                 <div class="controls">
                     <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
@@ -338,11 +338,24 @@
                 </div>
             </div>
 
-            <div class="product-card" data-name="Cubeta Victoria" data-price="0">
+            <div class="product-card" data-name="Victoria 1/4" data-price="20">
                 <div class="product-info">
-                    <h3>Cubeta Victoria</h3>
-                    <p>Cervezas Victoria bien frías</p>
-                    <div class="price">--</div>
+                    <h3>Victoria 1/4</h3>
+                    <p>Cerveza Victoria bien fría personal</p>
+                    <div class="price">$20</div>
+                </div>
+                <div class="controls">
+                    <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
+                    <span class="qty">0</span>
+                    <button class="btn-qty" onclick="changeQty(this, 1)">+</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-name="Victoria Latón" data-price="30">
+                <div class="product-info">
+                    <h3>Victoria Latón</h3>
+                    <p>Cerveza Victoria presentación latón bien fría</p>
+                    <div class="price">$30</div>
                 </div>
                 <div class="controls">
                     <button class="btn-qty" onclick="changeQty(this, -1)">-</button>
@@ -434,7 +447,7 @@
                             name += ` (Chico)`;
                         }
                     }
-                    articulos.push(`• ${qty}x ${name}`);
+                    articulos.push("• " + qty + "x " + name);
                 }
             });
 
@@ -453,16 +466,16 @@
                 return;
             }
 
-            let mensaje = `¡Hola! Me gustaría hacer un pedido desde el menú digital:\n\n`;
-            mensaje += `🎯 *DETALLE DEL CONSUMO:*\n`;
-            mensaje += articulos.join('\n') + `\n\n`;
-            mensaje += `👤 *DATOS DEL CLIENTE:*\n`;
-            mensaje += `• *Nombre:* ${nombre}\n`;
-            mensaje += `• *Teléfono:* ${telefono}\n`;
-            if(direccion) mensaje += `• *Dirección:* ${direccion}\n`;
-            mensaje += `• *Notas/Mesa:* ${referencias}\n`;
+            let mensaje = "¡Hola! Me gustaría hacer un pedido desde el menú digital:\n\n";
+            mensaje += "🎯 *DETALLE DEL CONSUMO:*\n";
+            mensaje += articulos.join('\n') + "\n\n";
+            mensaje += "👤 *DATOS DEL CLIENTE:*\n";
+            mensaje += "• *Nombre:* " + nombre + "\n";
+            mensaje += "• *Teléfono:* " + telefono + "\n";
+            if(direccion) mensaje += "• *Dirección:* " + direccion + "\n";
+            mensaje += "• *Notas/Mesa:* " + referencias + "\n";
 
-            const url = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(mensaje)}`;
+            const url = "https://api.whatsapp.com/send?phone=" + WHATSAPP_NUMBER + "&text=" + encodeURIComponent(mensaje);
             window.open(url, '_blank');
         }
     </script>
