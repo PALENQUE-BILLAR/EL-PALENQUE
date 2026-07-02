@@ -3,81 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Palenque - Menú Digital</title>
+    <title>El Palenque - Menú</title>
     <style>
         :root { --primary: #FCB813; --accent-fire: #FF4500; --accent-red: #E62427; --dark: #0A0A0A; --card-bg: rgba(22, 22, 22, 0.95); --text-light: #FFFFFF; }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Arial', sans-serif; }
-        body { background-color: var(--dark); background-image: linear-gradient(rgba(10, 10, 10, 0.92), rgba(10, 10, 10, 0.92)), url('mesa-billar.JPEG'); background-attachment: fixed; background-size: cover; background-position: center; color: var(--text-light); padding-bottom: 110px; }
-        header { background: linear-gradient(180deg, rgba(31, 4, 5, 0.95) 0%, rgba(10, 10, 10, 0.95) 100%); text-align: center; padding: 35px 15px 25px 15px; border-bottom: 3px solid var(--accent-fire); }
-        .logo-container { display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        .logo-img { max-width: 130px; height: auto; border-radius: 50%; box-shadow: 0 0 20px rgba(255, 69, 0, 0.6); margin-bottom: 15px; border: 2px solid var(--accent-fire); }
-        header h1 { font-size: 2rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 900; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
-        header p { font-weight: bold; margin-top: 5px; font-size: 1rem; letter-spacing: 2px; color: var(--primary); text-shadow: 1px 1px 2px rgba(0,0,0,0.8); }
-        .container { max-width: 600px; margin: 0 auto; padding: 12px; }
-        .category-banner { width: 100%; height: 100px; border-radius: 12px 12px 0 0; background-size: cover; background-position: center; position: relative; margin-top: 25px; border: 1px solid rgba(255, 69, 0, 0.3); border-bottom: none; box-shadow: 0 4px 10px rgba(0,0,0,0.7); }
-        .category-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%); border-radius: 12px 12px 0 0; display: flex; align-items: center; padding-left: 15px; }
-        .category-overlay h2 { color: var(--primary); text-transform: uppercase; font-size: 1.25rem; letter-spacing: 1.5px; text-shadow: 2px 2px 4px #000; font-weight: 900; }
-        .category-group { background: rgba(0, 0, 0, 0.4); padding: 10px; border-radius: 0 0 12px 12px; border: 1px solid rgba(255, 69, 0, 0.2); border-top: none; margin-bottom: 20px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        .product-card { background-color: var(--card-bg); border-radius: 8px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 6px rgba(0,0,0,0.4); backdrop-filter: blur(3px); border: 1px solid rgba(255,255,255,0.05); }
-        .product-img { width: 100%; height: 110px; object-fit: cover; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 8px; }
-        .product-info h3 { font-size: 0.95rem; margin-bottom: 3px; color: #fff; font-weight: bold; }
-        .product-info p { font-size: 0.75rem; color: #bbb; margin-bottom: 8px; line-height: 1.2; }
-        .variant-select { background: #1a1a1a; color: white; border: 1px solid var(--accent-fire); padding: 5px; border-radius: 4px; margin-bottom: 8px; font-size: 0.75rem; width: 100%; }
-        .price-controls-row { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
-        .price { color: var(--primary); font-weight: bold; font-size: 1rem; }
-        .controls { display: flex; align-items: center; gap: 6px; }
-        .btn-qty { background-color: var(--accent-red); border: none; width: 26px; height: 26px; border-radius: 4px; font-weight: bold; cursor: pointer; color: white; }
-        .qty { font-size: 0.95rem; min-width: 14px; text-align: center; }
-        .info-card { background-color: var(--card-bg); padding: 15px; border-radius: 12px; margin-top: 20px; border: 1px solid rgba(252, 184, 19, 0.4); }
-        .delivery-form { background-color: var(--card-bg); padding: 15px; border-radius: 12px; margin-top: 20px; border: 1px solid rgba(255, 69, 0, 0.3); }
-        .form-group { margin-bottom: 12px; }
-        .form-group input, .form-group textarea { width: 100%; padding: 8px; background: rgba(15,15,15,0.9); border: 1px solid #444; color: white; }
-        .cart-bar { position: fixed; bottom: 0; left: 0; right: 0; background-color: rgba(0,0,0,0.95); padding: 15px; display: flex; justify-content: space-between; align-items: center; max-width: 600px; margin: 0 auto; border-top: 2px solid var(--accent-fire); z-index: 999; }
-        .btn-send { background-color: #25D366; color: white; border: none; padding: 12px 20px; font-weight: bold; border-radius: 5px; cursor: pointer; text-transform: uppercase; }
+        body { background-color: var(--dark); color: var(--text-light); padding-bottom: 110px; }
+        header { text-align: center; padding: 30px; border-bottom: 3px solid var(--accent-fire); }
+        .logo-img { max-width: 120px; border-radius: 50%; border: 2px solid var(--accent-fire); margin-bottom: 10px; }
+        .container { max-width: 600px; margin: 0 auto; padding: 10px; }
+        .category-banner { width: 100%; height: 80px; background-size: cover; background-position: center; border-radius: 8px; margin-top: 20px; display: flex; align-items: center; padding-left: 15px; color: var(--primary); font-weight: bold; border: 1px solid var(--accent-fire); }
+        .category-group { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 10px; }
+        .product-card { background: var(--card-bg); padding: 10px; border-radius: 8px; border: 1px solid #333; }
+        .product-img { width: 100%; height: 100px; object-fit: cover; border-radius: 4px; }
+        .product-info h3 { font-size: 0.9rem; margin: 5px 0; }
+        .price-row { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+        .price { color: var(--primary); font-weight: bold; }
+        .controls { display: flex; gap: 5px; align-items: center; }
+        .btn-qty { background: var(--accent-red); color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; }
+        .cart-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #000; padding: 15px; display: flex; justify-content: space-between; align-items: center; border-top: 2px solid var(--accent-fire); max-width: 600px; margin: auto; }
+        .btn-send { background: #25D366; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-container">
-            <img src="logo.JPEG" alt="Logo El Palenque" class="logo-img">
-            <h1>EL PALENQUE</h1>
-        </div>
-        <p>BILLAR Y APERITIVOS</p>
+        <img src="logo.JPEG" alt="Logo" class="logo-img">
+        <h1>EL PALENQUE</h1>
     </header>
 
     <div class="container">
-        <!-- COMBOS (RED) -->
-        <div class="category-banner" style="background-image: url('https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=500');">
-            <div class="category-overlay"><h2>⚡ Súper Combos</h2></div>
-        </div>
+        <!-- COMBOS -->
+        <div class="category-banner" style="background-image: url('https://i.imgur.com/vHwZ4oK.jpeg');"><h2>⚡ SÚPER COMBOS</h2></div>
         <div class="category-group">
-            <div class="product-card" data-name="Combo 1" data-price="160">
-                <img class="product-img" src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=400" alt="Combo 1">
-                <div class="product-info"><h3>Combo 1</h3><p>Hamburguesa, Hot Dog, Papas + Refresco</p></div>
-                <div class="price-controls-row"><div class="price">$160</div><div class="controls"><button class="btn-qty" onclick="changeQty(this, -1)">-</button><span class="qty">0</span><button class="btn-qty" onclick="changeQty(this, 1)">+</button></div></div>
-            </div>
-            <!-- (Añadir resto de combos aquí) -->
+            <div class="product-card" data-name="Combo 1" data-price="160"><img class="product-img" src="https://i.imgur.com/39wFv7m.jpeg"><div class="product-info"><h3>Combo 1</h3></div><div class="price-row"><span class="price">$160</span><div class="controls"><button class="btn-qty" onclick="changeQty(this, -1)">-</button><span class="qty">0</span><button class="btn-qty" onclick="changeQty(this, 1)">+</button></div></div></div>
+            <div class="product-card" data-name="Combo 2" data-price="220"><img class="product-img" src="https://i.imgur.com/UunGvFw.jpeg"><div class="product-info"><h3>Combo 2</h3></div><div class="price-row"><span class="price">$220</span><div class="controls"><button class="btn-qty" onclick="changeQty(this, -1)">-</button><span class="qty">0</span><button class="btn-qty" onclick="changeQty(this, 1)">+</button></div></div></div>
+            <div class="product-card" data-name="Combo 3" data-price="230"><img class="product-img" src="https://i.imgur.com/fL39mUo.jpeg"><div class="product-info"><h3>Combo 3</h3></div><div class="price-row"><span class="price">$230</span><div class="controls"><button class="btn-qty" onclick="changeQty(this, -1)">-</button><span class="qty">0</span><button class="btn-qty" onclick="changeQty(this, 1)">+</button></div></div></div>
+            <div class="product-card" data-name="Combo 4" data-price="270"><img class="product-img" src="https://i.imgur.com/n6bYvS0.jpeg"><div class="product-info"><h3>Combo 4</h3></div><div class="price-row"><span class="price">$270</span><div class="controls"><button class="btn-qty" onclick="changeQty(this, -1)">-</button><span class="qty">0</span><button class="btn-qty" onclick="changeQty(this, 1)">+</button></div></div></div>
+        </div>
+
+        <!-- HAMBURGUESAS -->
+        <div class="category-banner" style="background-image: url('https://i.imgur.com/e8r609I.jpeg');"><h2>🍔 HAMBURGUESAS Y APERITIVOS</h2></div>
+        <div class="category-group">
+            <div class="product-card" data-name="Hamburguesa Doble" data-price="100"><img class="product-img" src="https://i.imgur.com/nfeNpxZ.jpeg"><div class="product-info"><h3>Doble Carne</h3></div><div class="price-row"><span class="price">$100</span><div class="controls"><button class="btn-qty" onclick="changeQty(this, -1)">-</button><span class="qty">0</span><button class="btn-qty" onclick="changeQty(this, 1)">+</button></div></div></div>
+            <div class="product-card" data-name="Hamburguesa Clásica" data-price="75"><img class="product-img" src="https://i.imgur.com/e8r609I.jpeg"><div class="product-info"><h3>Clásica</h3></div><div class="price-row"><span class="price">$75</span><div class="controls"><button class="btn-qty" onclick="changeQty(this, -1)">-</button><span class="qty">0</span><button class="btn-qty" onclick="changeQty(this, 1)">+</button></div></div></div>
+            <div class="product-card" data-name="Hotdog" data-price="35"><img class="product-img" src="https://i.imgur.com/vHqgS0B.jpeg"><div class="product-info"><h3>Hotdog</h3></div><div class="price-row"><span class="price">$35</span><div class="controls"><button class="btn-qty" onclick="changeQty(this, -1)">-</button><span class="qty">0</span><button class="btn-qty" onclick="changeQty(this, 1)">+</button></div></div></div>
+            <div class="product-card" data-name="Papas" data-price="50"><img class="product-img" src="https://i.imgur.com/N6g9zre.jpeg"><div class="product-info"><h3>Papas</h3></div><div class="price-row"><span class="price">$50</span><div class="controls"><button class="btn-qty" onclick="changeQty(this, -1)">-</button><span class="qty">0</span><button class="btn-qty" onclick="changeQty(this, 1)">+</button></div></div></div>
         </div>
 
         <!-- BEBIDAS (LOCALES) -->
-        <div class="category-banner" style="background-image: url('cubetazo-cerveza.JPEG');" data-bg="cubetazo-cerveza.JPEG">
-            <div class="category-overlay"><h2>🍺 Bebidas y Barra</h2></div>
-        </div>
+        <div class="category-banner" style="background-image: url('cubetazo-cerveza.JPEG');"><h2>🍺 BEBIDAS Y BARRA</h2></div>
         <div class="category-group">
-            <div class="product-card" data-name="Cubetazo" data-price="150">
-                <img class="product-img" src="cubetazo-cerveza.JPEG" alt="Cubetazo">
-                <div class="product-info"><h3>Cubetazo</h3></div>
-                <div class="price-controls-row"><div class="price">$150</div><div class="controls"><button class="btn-qty" onclick="changeQty(this, -1)">-</button><span class="qty">0</span><button class="btn-qty" onclick="changeQty(this, 1)">+</button></div></div>
-            </div>
-            <!-- (Aquí irán tus otras bebidas locales...) -->
+            <div class="product-card" data-name="Cubetazo" data-price="150"><img class="product-img" src="cubetazo-cerveza.JPEG"><div class="product-info"><h3>Cubetazo</h3></div><div class="price-row"><span class="price">$150</span><div class="controls"><button class="btn-qty" onclick="changeQty(this, -1)">-</button><span class="qty">0</span><button class="btn-qty" onclick="changeQty(this, 1)">+</button></div></div></div>
+            <div class="product-card" data-name="Michelada" data-price="100"><img class="product-img" src="michelada-mexicana.JPEG"><div class="product-info"><h3>Michelada</h3></div><div class="price-row"><span class="price">$100</span><div class="controls"><button class="btn-qty" onclick="changeQty(this, -1)">-</button><span class="qty">0</span><button class="btn-qty" onclick="changeQty(this, 1)">+</button></div></div></div>
         </div>
     </div>
 
+    <div class="cart-bar">
+        <div id="total">Total: $0</div>
+        <button class="btn-send" onclick="enviar()">Enviar Pedido</button>
+    </div>
+
     <script>
-        // Lógica de corrección de imágenes locales y pedido por WhatsApp igual a la anterior
-        function changeQty(button, value) { const qtySpan = button.parentElement.querySelector('.qty'); let currentQty = parseInt(qtySpan.innerText) + value; qtySpan.innerText = currentQty < 0 ? 0 : currentQty; }
-        // ... (resto de funciones)
+        function changeQty(btn, val) {
+            let qtySpan = btn.parentElement.querySelector('.qty');
+            let q = parseInt(qtySpan.innerText) + val;
+            qtySpan.innerText = q < 0 ? 0 : q;
+            updateTotal();
+        }
+        function updateTotal() {
+            let total = 0;
+            document.querySelectorAll('.product-card').forEach(card => {
+                let q = parseInt(card.querySelector('.qty').innerText);
+                let p = parseInt(card.getAttribute('data-price'));
+                total += (q * p);
+            });
+            document.getElementById('total').innerText = 'Total: $' + total;
+        }
+        function enviar() {
+            let msg = "Pedido El Palenque:%0A";
+            document.querySelectorAll('.product-card').forEach(c => {
+                let q = c.querySelector('.qty').innerText;
+                if(q > 0) msg += q + "x " + c.getAttribute('data-name') + "%0A";
+            });
+            window.open("https://wa.me/529221963473?text=" + msg);
+        }
     </script>
 </body>
 </html>
